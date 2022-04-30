@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/features/product_page/product_screen.dart';
 import 'package:ecommerce_app/src/features/shopping_cart/shopping_cart_screen.dart';
 import 'package:ecommerce_app/src/features/sign_in/email_password_sign_in_screen.dart';
 import 'package:ecommerce_app/src/features/sign_in/email_password_sign_in_state.dart';
@@ -10,9 +11,10 @@ import '../features/products_list/products_list_screen.dart';
 
 enum AppRoute {
   home,
+  account,
   cart,
   orders,
-  account,
+  product,
   signIn,
 }
 
@@ -34,6 +36,15 @@ final goRouter = GoRouter(
             fullscreenDialog: true,
             child: ShoppingCartScreen(),
           ),
+        ),
+        GoRoute(
+          path: 'product/:id',
+          name: AppRoute.product.name,
+          // Use builder for default or pageBuilder to customize.
+          builder: (context, state) {
+            final productId = state.params['id']!;
+            return ProductScreen(productId: productId);
+          },
         ),
         GoRoute(
           path: 'orders',
