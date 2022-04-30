@@ -1,0 +1,12 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    todo: ignore
+
+linter:
+  rules:
+    # While coding, ignore these for now:
+    avoid_print: false
+    prefer_const_constructors: false
+    slash_for_doc_comments: true
