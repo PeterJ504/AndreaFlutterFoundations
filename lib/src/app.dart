@@ -8,9 +8,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      routerDelegate: goRouter.routerDelegate,
+      routeInformationParser: goRouter.routeInformationParser,
       debugShowCheckedModeBanner: false,
       restorationScopeId: 'app',
-      // * The home page of the app
       onGenerateTitle: (BuildContext context) => 'My Shop'.hardcoded,
       theme: ThemeData(
         primarySwatch: Colors.grey,
@@ -26,8 +27,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      routerDelegate: goRouter.routerDelegate,
-      routeInformationParser: goRouter.routeInformationParser,
     );
   }
 }
