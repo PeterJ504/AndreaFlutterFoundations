@@ -1,3 +1,5 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../../constants/test_products.dart';
 
 import '../domain/product.dart';
@@ -29,3 +31,7 @@ class FakeProductsRepository {
         .map((products) => products.firstWhere((product) => product.id == id));
   }
 }
+
+final productsRespostiryProvider = Provider<FakeProductsRepository>((ref) {
+  return FakeProductsRepository.instance;
+});
