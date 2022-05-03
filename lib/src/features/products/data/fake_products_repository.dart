@@ -5,9 +5,6 @@ import '../../../constants/test_products.dart';
 import '../domain/product.dart';
 
 class FakeProductsRepository {
-  FakeProductsRepository._();
-  static FakeProductsRepository instance = FakeProductsRepository._();
-
   final List<Product> _products = kTestProducts;
 
   List<Product> getProductsList() {
@@ -32,6 +29,6 @@ class FakeProductsRepository {
   }
 }
 
-final productsRespostiryProvider = Provider<FakeProductsRepository>((ref) {
-  return FakeProductsRepository.instance;
+final productsRepositoryProvider = Provider<FakeProductsRepository>((ref) {
+  return FakeProductsRepository();
 });
