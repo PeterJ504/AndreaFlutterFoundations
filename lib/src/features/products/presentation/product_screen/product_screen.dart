@@ -23,7 +23,7 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Done: Read from data source
-    final product = FakeProductsRepository.instance.getProductById(productId);
+    final product = FakeProductsRepository.instance.getProduct(productId);
     // final product =
     // kTestProducts.firstWhere((product) => product.id == productId);
     return Scaffold(
