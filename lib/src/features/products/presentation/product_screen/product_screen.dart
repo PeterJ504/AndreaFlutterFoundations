@@ -14,6 +14,7 @@ import 'package:ecommerce_app/src/constants/app_sizes.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../common_widgets/error_message_widget.dart';
 import '../../data/fake_products_repository.dart';
 
 /// Shows the product page for a given product ID.
@@ -25,23 +26,28 @@ class ProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const HomeAppBar(),
-      body: Consumer(builder: (context, ref, _) {
-        final productsRepository = ref.watch(productsRepositoryProvider);
-        final product = productsRepository.getProduct(productId)!;
-        return product == null
-            ? EmptyPlaceholderWidget(
-                message: 'Product not found'.hardcoded,
-              )
-            : CustomScrollView(
-                slivers: [
-                  ResponsiveSliverCenter(
-                    padding: const EdgeInsets.all(Sizes.p16),
-                    child: ProductDetails(product: product),
+      body: Consumer(
+        builder: (context, ref, _) {
+          final productValue = ref.watch(productProvider(productId));
+          return productValue.when(
+            data: (product) => product == null
+                ? EmptyPlaceholderWidget(
+                    message: 'Product not found'.hardcoded,
+                  )
+                : CustomScrollView(
+                    slivers: [
+                      ResponsiveSliverCenter(
+                        padding: const EdgeInsets.all(Sizes.p16),
+                        child: ProductDetails(product: product),
+                      ),
+                      ProductReviewsList(productId: productId),
+                    ],
                   ),
-                  ProductReviewsList(productId: productId),
-                ],
-              );
-      }),
+            error: (e, st) => ErrorMessageWidget(e.toString()),
+            loading: () => Center(child: CircularProgressIndicator()),
+          );
+        },
+      ),
     );
   }
 }
