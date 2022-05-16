@@ -42,6 +42,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
         title: Text('My Shop'.hardcoded),
         actions: [
           const ShoppingCartIcon(),
+          // ignore: unnecessary_null_comparison
           if (user != null) ...[
             ActionTextButton(
               key: MoreMenuButton.ordersKey,
