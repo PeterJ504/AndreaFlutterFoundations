@@ -8,3 +8,7 @@
 ## 5.22 GoRouter Redirects
 
 - Note that if the URL is changed manually, the whole UI is restarted which means that any states not persisted are lost.
+
+## 5.23 Fix checkout flows bug
+
+- See tutorial notes but basically the page keys are not handled as you would expect.
