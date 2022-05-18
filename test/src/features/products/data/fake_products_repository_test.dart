@@ -16,4 +16,30 @@ void main() {
       );
     },
   );
+  test(
+    'Should return first item in the global products list',
+    () async {
+      //arrange
+      //act
+      final productsRepository = FakeProductsRepository();
+      //assert
+      expect(
+        productsRepository.getProduct('1'),
+        kTestProducts[0],
+      );
+    },
+  );
+  test(
+    'Should return null when invalid item is requested',
+    () async {
+      //arrange
+      //act
+      final productsRepository = FakeProductsRepository();
+      //assert
+      expect(
+        productsRepository.getProduct('100'),
+        null,
+      );
+    },
+  );
 }
