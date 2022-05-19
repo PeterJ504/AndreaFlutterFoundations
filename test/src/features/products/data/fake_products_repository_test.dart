@@ -3,9 +3,11 @@ import 'package:ecommerce_app/src/features/products/data/fake_products_repositor
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  FakeProductsRepository makeProductsRepository() => FakeProductsRepository(
+        addDelay: false,
+      );
   group('Repository tests - ', () {
-    final productsRepository = FakeProductsRepository();
-
+    final productsRepository = makeProductsRepository();
     test(
       'Should return global products list',
       () async {
@@ -33,7 +35,7 @@ void main() {
   });
 
   group('Repository tests for streams and futures - ', () {
-    final productsRepository = FakeProductsRepository();
+    final productsRepository = makeProductsRepository();
 
     test(
       'Should return null when invalid item is requested',
@@ -73,7 +75,7 @@ void main() {
       'Should emit first item (stream)',
       () async {
         //arrange
-        final productsRepository = FakeProductsRepository();
+        final productsRepository = makeProductsRepository();
         //act
         var result = productsRepository.watchProduct('1');
         //assert
