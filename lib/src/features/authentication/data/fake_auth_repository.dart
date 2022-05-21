@@ -1,16 +1,19 @@
 import 'package:ecommerce_app/src/features/authentication/domain/app_user.dart';
+import 'package:ecommerce_app/src/utils/delay.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../utils/in_memory_store.dart';
 
 class FakeAuthRepository {
+  FakeAuthRepository({this.addDelay = true});
   final _authState = InMemoryStore<AppUser?>(null);
+  final bool addDelay;
 
   Stream<AppUser?> authStateChanges() => _authState.stream;
   AppUser? get currentUser => _authState.value;
 
   Future<void> signInWithEmailAndPassword(String email, String password) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await delay(addDelay);
     // throw Exception('Connection failed');
     if (currentUser == null) {
       _createNewUser(email);
@@ -18,9 +21,8 @@ class FakeAuthRepository {
   }
 
   Future<void> createUserWithEmailAndPassword(
-    String email,
-    String password,
-  ) async {
+      String email, String password) async {
+    await delay(addDelay);
     if (currentUser == null) {
       _createNewUser(email);
     }

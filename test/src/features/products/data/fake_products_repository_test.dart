@@ -13,7 +13,7 @@ void main() {
       () async {
         //arrange
         //act
-        var result = productsRepository.getProductsList();
+        var result = await productsRepository.fetchProductsList();
         //assert
         expect(result, kTestProducts);
       },
