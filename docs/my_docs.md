@@ -19,3 +19,7 @@
 - `AsyncLoading<void>` is the same as `AsyncValue<void>.loading`.
 - When testing `AccountScreenController`, you can use `AsyncData<void>` or `AsyncLoading<void>` to test the `AccountScreenController`'s `_onAccountChanged` method.
 - When testing, use `controller.debugState` instead of `controller.state`.
+
+## 6.14 Test AccountScreenController - 1
+
+- Mocks are explained here in more detail. `Mocktail` is used instead of `Mockito` because it seems to be more flexible.
