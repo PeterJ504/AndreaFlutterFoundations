@@ -14,6 +14,7 @@ void main() {
     test('Current user should be null', () {
       // arrange
       final authRepository = makeAuthRepository();
+      addTearDown(authRepository.dispose);
       // act
       var result = authRepository.currentUser;
       // assert
@@ -24,6 +25,7 @@ void main() {
     test('Current user should not be null after signIn', (() async {
       // arrange
       final authRepository = makeAuthRepository();
+      addTearDown(authRepository.dispose);
       // act
       await authRepository.signInWithEmailAndPassword(testEmail, testPassword);
       // assert
@@ -33,6 +35,7 @@ void main() {
     test('Current user should not be null after registration', (() async {
       // arrange
       final authRepository = makeAuthRepository();
+      addTearDown(authRepository.dispose);
       // act
       await authRepository.createUserWithEmailAndPassword(
           testEmail, testPassword);
@@ -43,6 +46,7 @@ void main() {
     test('Current user should be null after signOut', (() async {
       // arrange
       final authRepository = makeAuthRepository();
+      addTearDown(authRepository.dispose);
       // act
       await authRepository.signInWithEmailAndPassword(testEmail, testPassword);
       expect(authRepository.authStateChanges(), emits(testUser));
@@ -53,6 +57,7 @@ void main() {
     test('Should throw exception if signIn after dispose', (() async {
       // arrange
       final authRepository = makeAuthRepository();
+      addTearDown(authRepository.dispose);
       authRepository.dispose();
       // await authRepository.signInWithEmailAndPassword(testEmail, testPassword);
       // assert
