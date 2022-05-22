@@ -12,3 +12,10 @@
 ## 5.23 Fix checkout flows bug
 
 - See tutorial notes but basically the page keys are not handled as you would expect.
+
+## 6.13 Test AccountScreenController - 1
+
+- `AsyncData<void>` is the same as `AsyncValue<void>.data`.
+- `AsyncLoading<void>` is the same as `AsyncValue<void>.loading`.
+- When testing `AccountScreenController`, you can use `AsyncData<void>` or `AsyncLoading<void>` to test the `AccountScreenController`'s `_onAccountChanged` method.
+- When testing, use `controller.debugState` instead of `controller.state`.
