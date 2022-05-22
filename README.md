@@ -1,4 +1,6 @@
-# Flutter eCommerce App
+    <a href="https://github.com/[USER_NAME]/[REPO_NAME]/actions"><img src="https://github.com/[USER_NAME]/[REPO_NAME]/workflows/test-my-app/badge.svg" alt="Build Status"></a>
+
+    # Flutter eCommerce App
 
 This is the official Flutter Project for this course:
 
@@ -11,6 +13,5 @@ This will include a full-stack eCommerce app using Flutter & Firebase:
 A Flutter web preview of the app can be found here:
 
 - [Flutter Web Demo](https://my-shop-ecommerce-stg.web.app/)
-
 
 ### [LICENSE: MIT](../LICENSE.md)
