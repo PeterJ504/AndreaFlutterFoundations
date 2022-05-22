@@ -1,6 +1,6 @@
-        <a href="https://github.com/PeterJ504/AndreaFlutterFoundations/actions"><img src="https://github.com/PeterJ504/AndreaFlutterFoundations/workflows/test-my-app/badge.svg" alt="Build Status"></a>
-
     # Flutter eCommerce App
+
+<a href="https://github.com/PeterJ504/AndreaFlutterFoundations/actions"><img src="https://github.com/PeterJ504/AndreaFlutterFoundations/workflows/test-my-app/badge.svg" alt="Build Status"></a>
 
 This is the official Flutter Project for this course:
 
