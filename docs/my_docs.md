@@ -20,6 +20,10 @@
 - When testing `AccountScreenController`, you can use `AsyncData<void>` or `AsyncLoading<void>` to test the `AccountScreenController`'s `_onAccountChanged` method.
 - When testing, use `controller.debugState` instead of `controller.state`.
 
-## 6.14 Test AccountScreenController - 1
+## 6.14 Test AccountScreenController - 2
 
 - Mocks are explained here in more detail. `Mocktail` is used instead of `Mockito` because it seems to be more flexible.
+
+## 6.15 Test AccountScreenController - 3
+
+- `ISA` method checks to that the type is correct and `hasError` checks that an error is thrown.  Both methods are showing the same thing so only one is really necessary.
