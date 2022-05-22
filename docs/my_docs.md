@@ -27,3 +27,7 @@
 ## 6.15 Test AccountScreenController - 3
 
 - `ISA` method checks to that the type is correct and `hasError` checks that an error is thrown.  Both methods are showing the same thing so only one is really necessary.
+
+## 6.17 Test EmailSignInController - 2
+
+- Also refactored by creating a `mocks.dart` file.
