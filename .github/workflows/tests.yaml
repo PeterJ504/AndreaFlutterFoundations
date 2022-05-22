@@ -2,6 +2,7 @@ name: Run Tests
 on: [push, workflow_dispatch]
 jobs:
   drive:
+<<<<<<< HEAD
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
@@ -11,3 +12,10 @@ jobs:
       - run: |
           flutter config --enable-windows-desktop
           flutter test -d windows integration_test/smoke_test.dart
+=======
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
+      - run: flutter test
+>>>>>>> a4fdc1b5bcd8e2241bbd5447e679842ddf5a57e0
